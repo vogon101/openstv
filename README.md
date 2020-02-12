@@ -14,6 +14,8 @@ but we don't know much about it nor which version it's forked from.)
 ### This fork makes very minor changes to make OpenSTV 1.7 runnable again
 It will now run (albeit with some complaining) on python 2.7 and the latest version of wx python. Some features not work because of interface changes within wxpython. 
 
+This version is entirely unsupported and was only used once.
+
 
 OpenSTV History
 ---------------
