@@ -16,8 +16,8 @@ __revision__ = "$Id: report.py 570 2009-08-20 17:46:56Z jeff.oneill $"
 
 import string
 
-from openstv.version import v as OpenSTV_version
-from openstv.plugins import ReportPlugin
+from version import v as OpenSTV_version
+from plugins import ReportPlugin
 
 ##################################################################
 
@@ -42,7 +42,7 @@ class CsvReport(ReportPlugin):
       today = date.today().strftime("%d %b %Y")
       v = OpenSTV_version
 
-    if self.e.methodName == "ERS97 STV":
+    if self.e.methodName == "ERS97 STV" or self.e.methodName == "R_ERS97 STV" :
       quota = self.e.displayValue(self.e.quota[-1])
     elif self.e.threshMethod:
       quota = self.e.displayValue(self.e.thresh[-1])
@@ -107,7 +107,7 @@ class CsvReport(ReportPlugin):
     
     fmt = "%+." + str(self.e.prec) + "f"
 
-    if self.e.methodName == "ERS97 STV":
+    if self.e.methodName == "ERS97 STV" or self.e.methodName == "R_ERS97 STV" :
       nRS = self.e.numStages
     else:
       nRS = self.e.numRounds
@@ -119,7 +119,7 @@ class CsvReport(ReportPlugin):
     for RS in range(1, nRS):
       tl1 += ',"Stage",%d' % (RS+1)
 
-      if self.e.methodName == "ERS97 STV":
+      if self.e.methodName == "ERS97 STV" or self.e.methodName == "R_ERS97 STV" :
         R = self.e.stages[RS][-1]
       else:
         R = RS
@@ -165,7 +165,7 @@ class CsvReport(ReportPlugin):
                                  self.e.count[0][cc]/self.e.p)
 
         for RS in range(1, nRS):
-          if self.e.methodName == "ERS97 STV":
+          if self.e.methodName == "ERS97 STV" or self.e.methodName == "R_ERS97 STV" :
             R = self.e.stages[RS][-1]
             prevround = self.e.stages[RS-1][-1]
           else:
@@ -195,7 +195,7 @@ class CsvReport(ReportPlugin):
     # non-transferable
     line = '"Non-transferable", ,'
     for RS in range(1, nRS):
-      if self.e.methodName == "ERS97 STV":
+      if self.e.methodName == "ERS97 STV" or self.e.methodName == "R_ERS97 STV" :
         R = self.e.stages[RS][-1]
         prevround = self.e.stages[RS-1][-1]
       else:

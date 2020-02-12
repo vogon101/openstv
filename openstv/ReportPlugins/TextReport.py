@@ -18,8 +18,8 @@ import textwrap
 import math
 import os
 
-from openstv.version import v as OpenSTV_version
-from openstv.plugins import ReportPlugin
+from version import v as OpenSTV_version
+from plugins import ReportPlugin
 
 ##################################################################
 
@@ -87,7 +87,7 @@ http://www.OpenSTV.org/donate to donate via PayPal, Google Checkout, or
 Amazon Payments.  
 
 Certified election reports are also available.  Please go to 
-http://www.openstv.org/certified-reports for more information.
+http://www.org/certified-reports for more information.
 
 """
     

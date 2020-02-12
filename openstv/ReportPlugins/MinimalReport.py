@@ -12,7 +12,7 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
 
-from openstv.plugins import ReportPlugin
+from plugins import ReportPlugin
 
 class MinimalReport(ReportPlugin):
   "Return a minimal text report that is not meant for human consumption."
@@ -52,7 +52,7 @@ class MinimalReport(ReportPlugin):
     
     for r in range(self.e.numRounds):
       roundStage = r
-      if self.e.methodName == "ERS97 STV":
+      if self.e.methodName == "ERS97 STV" or self.e.methodName == "R_ERS97 STV":
         roundStage = self.e.roundToStage(r)
       
       line = "%s," % (roundStage + 1) 

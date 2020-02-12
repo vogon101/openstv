@@ -22,16 +22,17 @@ from threading import Thread
 from Queue import Queue
 
 import wx
+import wx.adv
 import wx.html
 import wx.lib.mixins.listctrl as listmix
 
-from openstv.BFE import BFEFrame
-from openstv.ballots import Ballots
-from openstv.ReportPlugins.TextReport import TextReport
-from openstv.ReportPlugins.HtmlReport import HtmlReport
-from openstv.ReportPlugins.CsvReport import CsvReport
-from openstv.plugins import getMethodPlugins
-from openstv.utils import getHome
+from BFE import BFEFrame
+from ballots import Ballots
+from ReportPlugins.TextReport import TextReport
+from ReportPlugins.HtmlReport import HtmlReport
+from ReportPlugins.CsvReport import CsvReport
+from plugins import getMethodPlugins
+from utils import getHome
 
 ##################################################################
 
@@ -180,10 +181,10 @@ class Frame(wx.Frame):
     # create a console window
     self.console = wx.TextCtrl(self.notebook, -1,
                                style=wx.TE_MULTILINE|wx.TE_READONLY|\
-                               wx.TE_WORDWRAP|wx.FIXED|wx.TE_RICH2)
+                               wx.TE_WORDWRAP|wx.FIXED_MINSIZE|wx.TE_RICH2)
     self.console.SetMaxLength(0)
     ps = self.console.GetFont().GetPointSize()
-    font = wx.Font(ps, wx.MODERN, wx.NORMAL, wx.NORMAL)
+    font = wx.Font(ps, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
     self.console.SetFont(font)
 
     # add the console as the first page
@@ -382,8 +383,9 @@ to www.OpenSTV.org, or send an email to OpenSTV@googlegroups.com.
     self.electionList.append(election)
 
     # create a new notebook page
+    # TODO
     tc = wx.TextCtrl(self.notebook, -1,
-                     style=wx.TE_MULTILINE|wx.TE_READONLY|wx.HSCROLL|wx.FIXED)
+                     style=wx.TE_MULTILINE|wx.TE_READONLY|wx.HSCROLL|wx.FIXED_MINSIZE)
     tc.SetMaxLength(0)
     ps = tc.GetFont().GetPointSize()
     font = wx.Font(ps, wx.MODERN, wx.NORMAL, wx.NORMAL)
@@ -646,7 +648,7 @@ See the Help menu for more information about the available methods.""")
 
   def OnFilenameSelect(self, event):
     dlg = wx.FileDialog(self, "Select Input File", "",
-                        style=wx.OPEN|wx.CHANGE_DIR)
+                        style=wx.FD_OPEN|wx.FD_CHANGE_DIR)
     if dlg.ShowModal() != wx.ID_OK:
       dlg.Destroy()
       return
@@ -895,9 +897,9 @@ class App(wx.App):
     # Show a splash screen
     png = os.path.join(getHome(), "Icons", "splash.png")
     bmp = wx.Image(png).ConvertToBitmap()
-    wx.SplashScreen(bmp,
-                    wx.SPLASH_CENTRE_ON_SCREEN | wx.SPLASH_TIMEOUT,
-                    5000, None, -1)
+    #wx.adv.SplashScreen(bmp,
+    #                wx.adv.SPLASH_CENTRE_ON_SCREEN | wx.adv.SPLASH_TIMEOUT,
+    #                500, None, -1)
 
     self.frame = Frame(None)
     self.frame.Show(True)

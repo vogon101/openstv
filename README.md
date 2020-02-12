@@ -11,36 +11,9 @@ that a fork of OpenSTV is being maintained [over
 here](https://github.com/agoravoting/agora-tally/tree/next/agora_tally/ballot_counter),
 but we don't know much about it nor which version it's forked from.)
 
-If you're looking for voting software, as of May 2016 the places to
-start are probably:
+### This fork makes very minor changes to make OpenSTV 1.7 runnable again
+It will now run (albeit with some complaining) on python 2.7 and the latest version of wx python. Some features not work because of interface changes within wxpython. 
 
-* Agora Voting: https://github.com/agoravoting
-* Helios Voting: https://vote.heliosvoting.org/
-* Condorcet Internet Voting Service: http://civs.cs.cornell.edu/
-* Apache STeVe: https://steve.apache.org/
-* E-Vote: https://github.com/mdipierro/evote
-* https://github.com/conservancy/voting (lists a bunch of other voting software)
-* https://github.com/Conservatory/openstv (including here so you have a complete list)
-
-Apache STeVe was used in a test Board election at the Apache Software
-Foundation.  The user interface is pretty good, and it supports the
-"Single Transferable Vote" method as well as some others.  (Oddly, it
-seems not to have direct support for Approval Voting, but that ought
-to be very easy to add if someone wants it, since implementation-wise
-it's really a subset of the STV algorithm anyway.)
-
-As for voting method: Choosing a voting system is complex, and there
-is often not an obvious right choice.  It depends on what kinds of
-outcomes your electorate should optimize for, and of course, if you
-knew the answer to that, you probably wouldn't be needing to hold a
-vote in the first place.  However, for most purposes, Score Voting,
-Approval Voting, or STV are fine, and any of them is a big improvement
-on the generally terrible "one vote per voter no matter how many
-candidates" method that seems to currently be the default for most
-elections that matter.  If you want to dig deeper, [this
-tweet](https://twitter.com/kfogel/status/705857077768376320) leads to
-conversation and links about the pros and cons of various voting
-methods.
 
 OpenSTV History
 ---------------
@@ -83,8 +56,40 @@ In an STV election, each voter simply ranks the candidates in order of preferenc
 
 Installation
 ------------
-
 See http://www.OpenSTV.org/ for more information.
 
 Jeff O'Neill
 jeff.oneill at openstv.org
+
+Other Notes
+--------
+If you're looking for voting software, as of May 2016 the places to
+start are probably:
+
+* Agora Voting: https://github.com/agoravoting
+* Helios Voting: https://vote.heliosvoting.org/
+* Condorcet Internet Voting Service: http://civs.cs.cornell.edu/
+* Apache STeVe: https://steve.apache.org/
+* E-Vote: https://github.com/mdipierro/evote
+* https://github.com/conservancy/voting (lists a bunch of other voting software)
+* https://github.com/Conservatory/openstv (including here so you have a complete list)
+
+Apache STeVe was used in a test Board election at the Apache Software
+Foundation.  The user interface is pretty good, and it supports the
+"Single Transferable Vote" method as well as some others.  (Oddly, it
+seems not to have direct support for Approval Voting, but that ought
+to be very easy to add if someone wants it, since implementation-wise
+it's really a subset of the STV algorithm anyway.)
+
+As for voting method: Choosing a voting system is complex, and there
+is often not an obvious right choice.  It depends on what kinds of
+outcomes your electorate should optimize for, and of course, if you
+knew the answer to that, you probably wouldn't be needing to hold a
+vote in the first place.  However, for most purposes, Score Voting,
+Approval Voting, or STV are fine, and any of them is a big improvement
+on the generally terrible "one vote per voter no matter how many
+candidates" method that seems to currently be the default for most
+elections that matter.  If you want to dig deeper, [this
+tweet](https://twitter.com/kfogel/status/705857077768376320) leads to
+conversation and links about the pros and cons of various voting
+methods.

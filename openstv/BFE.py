@@ -19,9 +19,9 @@ import os
 import warnings
 import wx.lib.mixins.listctrl as listmix
 
-from openstv.STV import *
-from openstv.ballots import Ballots
-from openstv.utils import getHome
+from STV import *
+from ballots import Ballots
+from utils import getHome
 
 ##################################################################
 
